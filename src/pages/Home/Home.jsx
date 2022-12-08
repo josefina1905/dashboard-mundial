@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from '../../common/Button/button';
 import logo from '../../logo.svg';
+import { seleccioncontroller } from '../../networking/controllers/seleccion-controller';
 import './home.css';
 
 function Home() {
@@ -24,6 +25,15 @@ function Home() {
         >
           Learn React
         </a>
+        <div className="Grupos">
+          <h1>Grupo A</h1>
+          <h1>Grupo B</h1>
+          <h1>Grupo C</h1>
+          <h1>Grupo D</h1>
+          <h1>Grupo F</h1>
+          <h1>Grupo G</h1>
+          <h1>Grupo H</h1>
+        </div>
       </header>
     </div>
   );
