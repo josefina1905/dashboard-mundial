@@ -1,10 +1,18 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Button from '../../common/Button/button';
 import logo from '../../logo.svg';
-import { seleccioncontroller } from '../../networking/controllers/seleccion-controller';
+import { SeleccionController } from '../../networking/controllers/seleccion-controller';
 import './home.css';
 
 function Home() {
+  const [selecciones, setSelecciones] = useState({});
+  useEffect(() => {
+    async function getSeleccion() {
+      const seleccionn = await SeleccionController.getSeleccion();
+      setSelecciones(seleccionn);
+    }
+    getSeleccion();
+  }, []);
   return (
     <div className="App">
       <header className="App-header">
@@ -17,6 +25,7 @@ function Home() {
           </code>
           and save to reload.
         </p>
+        {selecciones.map((seleccion) => <p>{seleccion.nombre}</p>)}
         <a
           className="App-link"
           href="https://reactjs.org"
